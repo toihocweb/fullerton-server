@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
 const users = require("./routes/api/users");
+const bookings = require("./routes/api/bookings");
 const app = express();
 require("dotenv").config();
 
@@ -30,6 +31,7 @@ require("./config/passport")(passport);
 
 // Use Routes
 app.use("/api/v1/auth", users);
+app.use("/api/v1/bookings", bookings);
 // app.use("/api/profile", profile);
 // app.use("/api/posts", posts);
 

@@ -19,7 +19,9 @@ const User = require("../../models/User");
  * @access public
  */
 router.get("/test", (req, res) => res.json({ msg: "Users API Works" }));
-
+router.get("/users", (req, res) => {
+  User.find({}).then((users) => res.json(users));
+});
 /**
  * @api {POST} /api/v1/auth/register
  * @name Register
