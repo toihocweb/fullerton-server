@@ -27,14 +27,7 @@ const BookingSchema = new Schema(
       type: String,
       required: true,
     },
-    times: [
-      {
-        date: {
-          type: Date,
-          default: Date.now,
-        },
-      },
-    ],
+    times: Array,
     user: {
       type: String,
       ref: "users",
@@ -49,4 +42,7 @@ const BookingSchema = new Schema(
   }
 );
 
-module.exports = Booking = mongoose.model("bookings", BookingSchema);
+module.exports = {
+  STATUS,
+  Booking: mongoose.model("bookings", BookingSchema),
+};

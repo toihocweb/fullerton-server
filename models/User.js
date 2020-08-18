@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const uuidv4 = require("uuid").v4;
+
+const ROLE = {
+  USER: "user",
+  ADMIN: "admin",
+};
+
 // Create Schema
 const UserSchema = new Schema(
   {
@@ -18,8 +24,8 @@ const UserSchema = new Schema(
     },
     role: {
       type: String,
-      emum: ["user", "admin"],
-      default: "user",
+      emum: [ROLE.USER, ROLE.ADMIN],
+      default: ROLE.USER,
     },
     password: {
       type: String,

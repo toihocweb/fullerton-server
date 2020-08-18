@@ -6,12 +6,13 @@ const path = require("path");
 const users = require("./routes/api/users");
 const bookings = require("./routes/api/bookings");
 const app = express();
+const cors = require("cors");
 require("dotenv").config();
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cors());
 // DB Config
 console.log(process.env.MONGO_URI);
 // Connect to MongoDB

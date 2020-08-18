@@ -18,6 +18,9 @@ module.exports = function validateBookingInput(data) {
   if (Validator.isEmpty(data.booking_type)) {
     errors.booking_type = "Type field is required";
   }
+  if (isEmpty(data.times)) {
+    errors.times = "Times field is required";
+  }
 
   return {
     errors,
