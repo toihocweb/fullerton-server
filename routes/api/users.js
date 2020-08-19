@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
 const passport = require("passport");
 const status = require("http-status");
 // Load Input Validation
@@ -19,12 +17,10 @@ const User = require("../../models/User");
  * @access public
  */
 router.get("/test", (req, res) => res.json({ msg: "Users API Works" }));
-router.get("/users", (req, res) => {
-  User.find({}).then((users) => res.json(users));
-});
+
 /**
  * @api {POST} /api/v1/auth/register
- * @name Register
+ * @name Register new user
  * @access public
  */
 router.post("/register", (req, res) => {
@@ -65,7 +61,7 @@ router.post("/register", (req, res) => {
 
 /**
  * @api {POST} /api/v1/auth/login
- * @name Login
+ * @name Login new user
  * @access public
  */
 router.post("/login", (req, res) => {

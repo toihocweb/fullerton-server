@@ -1,18 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const gravatar = require("gravatar");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
 const passport = require("passport");
-const status = require("http-status");
-// Load Input Validation
 
+// Load Input Validation
 const validateBookingInput = require("../../validation/booking");
 const validateBookingTypeInput = require("../../validation/bookingtype");
 
 // Load User model
 const User = require("../../models/User");
+
+// Load Booking model
 const { Booking, STATUS } = require("../../models/Booking");
 const BookingType = require("../../models/BookingType");
 
